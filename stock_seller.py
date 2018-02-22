@@ -1,18 +1,21 @@
+icon = input("What stock do you want to sell?: ")
+tshare = int(input("Total shares owned?: "))
+stprice = float(input("share price? : "))
+endamount = float(input("End share price? : "))
+sellshare = float(input("How many shares are you selling?: "))
+
 class StockHolding:
     
-    def __init__( self, icon, tshare, startingpri ):
+    def __init__( self, icon, tshare, stprice ):
         self.icon = icon
         self.tshare = tshare
-        self.startingpri = startingpri
-        
-    def geticon(self):
-        return self.icon
+        self.stprice = stprice
     
     def getNumShares(self):
         return self.tshare
     
-    def getstartingpri(self):
-        return self.startingpri
+    def getstprice(self):
+        return self.stprice
     
     def sellShares(self, sellshare ):
         self.sellshare = sellshare
@@ -20,30 +23,19 @@ class StockHolding:
             self.tshare = self.tshare - sellshare
             print("Your remaining shares are: {}".format( self.tshare ))
         else:
-            raise ValueError("You don't have that many.")
-        return self.tshare, sellshare
+            raise ValueError("You don't have that many stocks. Please run this program again.")
         
     def estimatedProfit(self, endamount, sellshare):
-        estimatedProfit = (endamount - self.startingpri) * sellshare
-        if estimatedProfit > 0:
-            print("Profit for selling {0} {1} shares is {2}".format( sellshare, self.icon, estimatedProfit ))
+        estimatedProfit = (endamount - self.stprice) * sellshare
+        if estimatedProfit > 1000:
+            print("Profit for selling {0} your shares is {1}".format( sellshare, estimatedProfit ))
         else:
-            print("Keep your stocks boy")
+            print("Keep your stocks boy or girl, your estimated profit is less than 1000. Taxes will kill you")
         return estimatedProfit
-                          
-        
-def getInputs():
-    icon = input("What stock do you want to sell?: ")
-    tshare = int(input("Total shares owned?: "))
-    startingpri = float(input("share price? : "))
-    endamount = float(input("End share price? : "))
-    sellshare = float(input("How many shares are you selling?: "))
-    return icon, tshare, startingpri, endamount, sellshare
 
 
 def main():
-    icon,tshare, startingpri, endamount, sellshare = getInputs()
-    testStockHolding = StockHolding( icon, tshare, startingpri )
+    testStockHolding = StockHolding( icon, tshare, stprice )
     testStockHolding.sellShares( sellshare )
     testStockHolding.estimatedProfit( endamount, sellshare)
 
