@@ -3,6 +3,7 @@ from die_view import DieView
 from sum_counter_view import *
 from graphics import *
 
+
 def main(): #my graph window
     win = GraphWin("Double_Die_Roller", 425, 200)
     win.setBackground( 'dark red' )

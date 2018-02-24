@@ -1,8 +1,8 @@
 icon = input("What stock do you want to sell?: ")
 tshare = int(input("Total shares owned?: "))
-stprice = float(input("share price? : "))
-endamount = float(input("End share price? : "))
-sellshare = float(input("How many shares are you selling?: "))
+stprice = int(input("share price? : "))
+endamount = int(input("End share price? : "))
+sellshare = int(input("How many shares are you selling?: "))
 
 class StockHolding:
     
